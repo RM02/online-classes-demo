@@ -33,7 +33,7 @@ export default function Category () {
         alert("Se ha inscrito en este curso")
     }
     const renderCategoryElements = (data) => {
-        return data.map((item) => <Card data={item} showContent={true}></Card>)
+        return data.map((item, index) => <Card data={item} showContent={true} key={index}></Card>)
     }
     useEffect(() => {
         getCourses()

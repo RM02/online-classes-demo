@@ -68,7 +68,7 @@ export default function Home() {
         { !loading && <p className={styles.subtitle}>Categorías</p>}
         <ul>
           { loading && <MenuSkeleton></MenuSkeleton> }
-          { !loading && categories?.map((category) => <li className={styles.text_secondary}> {category} </li>) }
+          { !loading && categories?.map((category, index) => <li className={styles.text_secondary} key={index}> {category} </li>) }
         </ul>
       </>
     )
@@ -77,10 +77,10 @@ export default function Home() {
     return (
       <>
         {
-          data?.map((item) => {
+          data?.map((item, index) => {
             if (item.category == category) {
               return (
-                <Card data={item} showContent={false}></Card>
+                <Card data={item} showContent={false} key={index}></Card>
               )
             }
           })
@@ -92,10 +92,10 @@ export default function Home() {
   const renderCoursesByCategory = () => {
     return (
       <>
-        { categories?.map((category) => {
+        { categories?.map((category, index) => {
             return (
               <>
-                <div>
+                <div key={index}>
                   <div className={styles.subtitle}>{category}</div>
                   <div className={styles.grid}>
                     { renderContentByCategory(category, courses) }
@@ -107,8 +107,8 @@ export default function Home() {
           })
         }
         { loading && 
-          Array(3).fill().map((item) => <>
-              <div>
+          Array(3).fill().map((item, index) => <>
+              <div key={index}>
                 <div className={styles.subtitle}>
                 </div>
                 <div className={styles.grid}>
@@ -158,10 +158,10 @@ export default function Home() {
           <div className={styles.block}>
             <h1 className={styles.subtitle}>Cursos más populares</h1>
             <div className={styles.grid}>
-              { promo?.map((item) => {
+              { promo?.map((item, index) => {
                 return (
 
-                      <div className="card">
+                      <div className="card" key={index}>
                           <img className="card-img-top" src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/04/01170800/Free-Online-Courses-with-Certificates.jpg" alt="Card image cap"/>
                           <div className="card-body">
                               <div className="card-title mb-2">{item.subject}</div>

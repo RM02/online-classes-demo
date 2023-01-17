@@ -26,8 +26,8 @@ export default function Courses () {
     }
 
     const renderCourses = () => {
-        const children = courses?.map((item) => 
-            <div className="card">
+        const children = courses?.map((item, index) => 
+            <div className="card" key={index}>
                 <div className="card-body">
                     <div className="card-title"> { item?.subject?.toUpperCase() } </div>
                     <div className="card-subtitle"> { item?.category } </div>
