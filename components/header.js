@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { signIn, useSession, signOut } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function HeaderComponent ({ isAuth }) {
@@ -53,7 +53,7 @@ export default function HeaderComponent ({ isAuth }) {
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><button className="dropdown-item" onClick={() => router.push('/account?login=false')}>Registrar</button></li>
-                        <li><button className="dropdown-item" onClick={() => signIn()}>Ingresar</button></li>
+                        <li><button className="dropdown-item" onClick={() => router.push('/account?login=true')}>Ingresar</button></li>
                     </ul>
                 </>
             )

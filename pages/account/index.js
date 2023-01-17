@@ -34,15 +34,12 @@ export default function Account () {
         }
     }
     const login = async (data) => {
-        const { status } = await signIn('credentials', {
+        await signIn('credentials', {
             email: data.email,
             password: data.password,
-            redirect: false
+            redirect: true,
+            callbackUrl: "/courses"
         })
-        if (status == 200) {
-            router.push("/courses")
-        }
-        
     }
     const register = async (data) => {
         fetch(`${API}/user/create`, {
