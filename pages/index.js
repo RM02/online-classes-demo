@@ -11,6 +11,7 @@ import Card from '../components/cardComponent';
 import CardSkeleton from '../components/cardSkeleton';
 import BodySkeleton from '../components/bodySkeleton';
 import MenuSkeleton from '../components/categoryMenuSkeleton';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -142,7 +143,7 @@ export default function Home() {
               <h1 className={styles.title}>Universidad Bolivariana de las Comunas</h1>
               <p className={styles.text}>Adquiere un programa, curso y/o licenciatura en alguna de las carreras que ofrecemos. Registrarte en nuestra plataforma y accede a toda la información que tenemos para ti.</p>
               <div className={styles.join}>
-                <a type="button" className="btn btn-warning" href="/account?login=false">Acceder</a>
+                <Link type="button" className="btn btn-warning" href="/account?login=false">Acceder</Link>
               </div>
             </div>
             <div className={styles.videoIntro}>

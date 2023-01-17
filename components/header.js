@@ -61,11 +61,11 @@ export default function HeaderComponent ({ isAuth }) {
     const dynamicMenu = () => {
         return (
             <ul className="navbar-nav">
-                {   menuConfig.map(item => {
+                {   menuConfig.map((item, index) => {
                         return (
                             item?.children ? 
                             <>
-                                <li className="nav-item dropdown">
+                                <li className="nav-item dropdown" key={index}>
                                     <a className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         {item.label}
                                     </a>

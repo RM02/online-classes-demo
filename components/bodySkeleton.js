@@ -3,10 +3,10 @@ export default function BodySkeleton (n=3) {
     return (
         <>
             {
-                Array(3).fill().map((item) => {
+                Array(3).fill().map((item, index) => {
                     return (
                         <>
-                            <div>
+                            <div key={index}>
                                 <div>
                                     <Skeleton duration={1} height={200} width={250}></Skeleton>
                                 </div>

@@ -4,10 +4,10 @@ export default function CardSkeleton ({n = 6}) {
 
     return (
         <>
-            { Array(n).fill().map(item => {
+            { Array(n).fill().map((item, index) => {
                 return (
                             
-                        <div className='col-sm'>
+                        <div className='col-sm' key={index}>
                             <div>
                                 <Skeleton duration={1} height={200}></Skeleton>
                             </div>

@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 export default function MenuSkeleton () {
     return (
         <>
-            { Array(5).fill().map((item) => <div className='mb-4'> <Skeleton height={15} width="60%"></Skeleton> </div>) }
+            { Array(5).fill().map((item, index) => <div key={index} className='mb-4'> <Skeleton height={15} width="60%"></Skeleton> </div>) }
         </>
     )
 }
