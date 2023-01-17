@@ -1,5 +1,4 @@
 import nextAuth, { NextAuthOptions } from "next-auth";
-import { getToken } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials"
 
 const authOpts = {
