@@ -15,14 +15,20 @@ export default function Courses () {
     const API = process.env.NEXT_PUBLIC_API_URL;
 
     const getCourses = (id) => {
-        if (id)
-        fetch(`${API}/user/${id}`)
-        .then((res) => res.json())
-        .then((response) => {
-            const subscriptions = response?.data[0]?.subscriptions;
-            const courses = subscriptions?.map(item => item?.courses[0])
-            setCourses(courses)
-        })
+        if (id) {
+
+            fetch(`${API}/user/${id}`)
+            .then((res) => res.json())
+            .then((response) => {
+                if (response.ok) {
+                    const subscriptions = response?.data[0]?.subscriptions;
+                    const courses = subscriptions?.map(item => item?.courses[0])
+                    setCourses(courses)
+                } else {
+                    setCourses(null)
+                }
+            })
+        }
     }
 
     const renderCourses = () => {
@@ -55,7 +61,6 @@ export default function Courses () {
             <HeaderComponent></HeaderComponent>
             <div className="container">
                 <div className={styles.layout}>
-                    { JSON.stringify(session?.user) }
                     <p className={styles.subtitle}>Mis cursos</p>
                     <ul className="nav nav-tabs" id="myTab" role="tablist">
                         <li className="nav-item">
@@ -70,13 +75,13 @@ export default function Courses () {
                     </ul>
                     <div className="tab-content" id="myTabContent">
                         <div className="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="home-tab">
-                            { courses ? renderCourses() : <h3>No hay cursos registrados</h3> }
+                            { courses ? renderCourses() : <h3 className='mx-2 text-muted'>No hay cursos registrados</h3> }
                         </div>
                         <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            { courses ? renderCourses() : <h3>No hay cursos registrados</h3> }
+                            { courses ? renderCourses() : <h3 className='mx-2 text-muted'>No hay cursos registrados</h3> }
                         </div>
                         <div className="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            { courses ? renderCourses() : <h3>No hay cursos registrados</h3> }
+                            { courses ? renderCourses() : <h3 className='mx-2 text-muted'>No hay cursos registrados</h3> }
                         </div>
                     </div>
                 </div>
