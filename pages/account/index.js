@@ -34,12 +34,15 @@ export default function Account () {
         }
     }
     const login = async (data) => {
-        const response = await signIn('credentials', {
+        const { status } = await signIn('credentials', {
             email: data.email,
             password: data.password,
             redirect: false
         })
-        responseHandler(response)
+        if (status == 200) {
+            router.push("/courses")
+        }
+        
     }
     const register = async (data) => {
         fetch(`${API}/user/create`, {
@@ -53,16 +56,6 @@ export default function Account () {
                 login(data)
             }
         })
-    }
-    const responseHandler = (response) => {
-        switch (response.status) {
-            case 200:
-                router.push("/courses")
-                break
-            case 401:
-                setIsBadRequest(true)
-                break
-        }
     }
 
     useEffect(() => {

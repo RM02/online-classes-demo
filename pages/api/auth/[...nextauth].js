@@ -20,6 +20,9 @@ const authOpts = {
             }
             return session;
         },
+        redirect: ({ url }) => {
+            return url
+        }
     },
     providers: [
         CredentialsProvider({
