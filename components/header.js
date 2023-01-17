@@ -67,17 +67,17 @@ export default function HeaderComponent ({ isAuth }) {
                             item?.children ? 
                             <>
                                 <li className="nav-item dropdown" key={index}>
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <Link className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         {item.label}
-                                    </a>
+                                    </Link>
                                     <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                        { item.children.map(child => <li><a className="dropdown-item" href={child.path}>{child.label}</a></li>) }
+                                        { item.children.map((child, n) => <li key={n}><Link className="dropdown-item" href={child.path}>{child.label}</Link></li>) }
                                     </ul>
                                 </li>
                             </> :
                             <>
-                                <li className="nav-item">
-                                    <a className="nav-link" href={item.path}>{item.label}</a>
+                                <li className="nav-item" key={index}>
+                                    <Link className="nav-link" href={item.path}>{item.label}</Link>
                                 </li>
                             </> 
                         )
