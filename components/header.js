@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { signIn, useSession, signOut } from 'next-auth/react';
+import Link from 'next/link';
 
 export default function HeaderComponent ({ isAuth }) {
 
@@ -93,9 +94,9 @@ export default function HeaderComponent ({ isAuth }) {
 
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <Link className="navbar-brand" href="/">
                         <img src="/UBC.png" className="d-inline-block" height="30px"/>
-                    </a>    
+                    </Link>    
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
