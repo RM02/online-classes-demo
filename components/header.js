@@ -37,10 +37,10 @@ export default function HeaderComponent ({ isAuth }) {
                         { session?.user?.name?.toLocaleUpperCase() }
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><button className="dropdown-item" onClick={() => router.push('/courses')}>Mis cursos</button></li>
+                        <li><Link className="dropdown-item" href='/courses'>Mis cursos</Link></li>
                         <hr></hr>
                         
-                        <li><button className="dropdown-item" href="#">Perfil</button></li>
+                        <li><Link className="dropdown-item" href="/">Perfil</Link></li>
                         <li><button className="dropdown-item" onClick={() => signOut()}>Logout</button></li>
                     </ul>
                 </>
@@ -48,9 +48,9 @@ export default function HeaderComponent ({ isAuth }) {
         } else {
             return (
                 <>
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className="nav-link dropdown-toggle btn btn-light" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Cuenta
-                    </a>
+                    </button>
                     <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><button className="dropdown-item" onClick={() => router.push('/account?login=false')}>Registrar</button></li>
                         <li><button className="dropdown-item" onClick={() => router.push('/account?login=true')}>Ingresar</button></li>
