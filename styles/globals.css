@@ -219,6 +219,8 @@ a {
   .navbar .btn-light {
     display: inline-flex;
     position: relative;
+    background-color: #fafafa;
+    color: #525252;
   }
   .navbar-toggler .collapsed {
     color: #fafafa;
