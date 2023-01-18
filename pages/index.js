@@ -80,8 +80,8 @@ export default function Home() {
         {
           data?.map((item, index) => {
             return (
-              <div className={styles.box}>
-                <Card data={item} showContent={true} key={index}></Card>
+              <div className={styles.box} key={index}>
+                <Card data={item} showContent={true}></Card>
               </div>
             )
           })
@@ -119,7 +119,7 @@ export default function Home() {
           <div className={styles.block}>
             <h2 className='text-center subtitle'>Categorías Populares</h2>
             <div className={styles.grid}>
-              { categories?.map((item) => <div className={styles.box}>
+              { categories?.map((item, index) => <div className={styles.box} key={index}>
                     <div className='card p-0'>
                       { item.includes('Turismo') && <img className="card-img-top" height={200} src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2021/04/turismo.jpg" alt="Card image cap"/>}
                       { item.includes('Informática') && <img className="card-img-top" height={200} src="https://concepto.de/wp-content/uploads/2015/08/informatica-1-e1590711788135.jpg" alt="Card image cap"/>}
