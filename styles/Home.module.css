@@ -1,15 +1,24 @@
 .layout {
-  margin-top: 150px
+  margin-top: 120px;
 }
 .layout-account {
   margin-right: 50px;
   margin-right: 50px;
 }
 .heading {
+  min-height: 100vh;
   display: grid;
   position: relative;
   grid-template-columns: 60% auto;
-  gap: 30px;
+  gap: 50px;
+}
+.heading a {
+  background-color: #ff8800;
+  color: #fafafa;
+}
+.heading a:hover {
+  background-color: #fafafa;
+  color: #ff8800;
 }
 .videoIntro {
   margin: 0 auto;
@@ -19,9 +28,9 @@
   align-items: center;
 }
 .title {
-  font-size: 50px;
+  font-size: 60px;
   line-height: 1;
-  color: #101010;
+  color: #00272e;
 
   font-weight: 800;
   font-family: 'Courier New', Courier, monospace;
@@ -30,8 +39,8 @@
   margin-bottom: 10px;
   font-size: 28px;
   padding-top: 10px;
-  font-weight: 200;
-  color: #101010;
+  font-weight: bold;
+  color: #ff8800;
   font-family: 'Courier New', Courier, monospace;
 }
 .subtitle_secondary {
@@ -58,17 +67,13 @@
   gap: 20px;
 }
 .grid {
-  margin-top: 20px;
-  margin-bottom: 30px;
-
+  margin-bottom: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 15px;
+  gap: 30px;
 }
 .box {
-  padding: 10px;
-  height: 150px;
-  background-color: #f2f2f2;
+  height: auto;
   display: inline-block;
 }
 .footer {
@@ -165,7 +170,7 @@
 }
 
 .block {
-  margin-top: 20px;
+  margin-bottom: 150px;
 }
 .courseClass {
   padding-top: 30px;
@@ -177,16 +182,13 @@
 @media screen and (max-width: 700px) {
   .heading {
     display: block;
-    padding-left: 30px;
-    padding-right: 25px;
-    margin-top: 20px;
   }
   .title {
     line-height: 1.2;
     font-size: 45px;
     justify-content: center;
     text-justify: auto;
-    color: #101010;
+    color: #00272e;
     font-weight: 800;
     font-family: 'Courier New', Courier, monospace;
   }
@@ -201,7 +203,6 @@
   .content {
     padding-left: 30px;
     padding-right: 25px;
-
     display: block;
   }
   .text {
@@ -269,6 +270,8 @@
     display: block;
   }
   .layout {
+    padding-left: 30px;
+    padding-right: 25px;
     margin-top: 100px;
     min-height: 100vh;
   }

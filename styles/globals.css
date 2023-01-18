@@ -4,7 +4,7 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  background-color: #fafafa;
+    background-image: url("https://scholarl.codebasket.net/assets/images/hero-bg.jpg");
 }
 .layout {
   margin-top: 150px
@@ -16,23 +16,29 @@
 .navbar {
   width: 100%;
   display: flex;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
 
   padding-left: 20px;
+  padding-bottom: 10px;
 
   align-items: center;
   align-content: center;
   justify-content: center;
   background-color: #fafafa;
-  border-bottom: 3px solid #f2f2f2;
+}
+.nav-item a {
+  color: #525252
+}
+.nav-item:hover a {
+  color: #ff8800
 }
 .nav-item {
   display: inline;
   padding-right: 15px;
   font-size: 16px;
-  color: #525252;
+  color: #fafafa;
   font-weight: bold;
   font-family: 'Courier New', Courier, monospace;
 }
@@ -41,25 +47,35 @@
   right: 0;
   position: absolute;
 }
-.btn-outlined {
-  background-color: #702ec2;
+.subtitle {
+  margin-bottom: 100px;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+  color: #00272e;
+  text-transform: capitalize;
+  font-family: Arial, Helvetica, sans-serif
+}
+.btn-light {
+  background-color: #ff8800;
+  border: 0px;
+  color: #fafafa;
+}
+.btn-light:hover {
+  background-color: #fafafa;
+  color: #ff8800;
+}
+.navbar .btn-light {
   color: #fafafa;
   right: 0;
   position: absolute;
+  width: 120px;
 }
-.btn-outlined:hover {
-  background-color: #f2f2f2;
-  color: #702ec2;
+.navbar .btn-light:hover {
+  background-color: #fafafa;
+  color: #ff8800;
   right: 0;
   position: absolute;
-}
-.btn-header-outlined {
-  background-color: #702ec2;
-  color: #fafafa;
-}
-.btn-header-outlined:hover {
-  background-color: #f2f2f2;
-  color: #702ec2;
 }
 .logo {
   height: 70px;
@@ -67,6 +83,23 @@
 }
 .navbar-brand {
   padding: 0px;
+}
+.card:hover {
+  border-bottom: 5px solid #ff8800;
+  background-color: #fafafa;
+}
+.card:hover .card-title {
+  color: #ff8800;
+}
+hr {
+  color: #c5c5c5;
+}
+.card .card-title {
+  color: #00272e;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 24px;
 }
 label {
   font-weight: bold;
@@ -91,12 +124,11 @@ label {
   border-color: #fafafa;
 }
 .card {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 3px solid #f2f2f2;
+  border-bottom: 5px solid #f2f2f2;
+  background-color: #fafafa;
 }
 .card-text {
-  color: #525252;
+  color: #c0c0c0;
 }
 .card-title {
   font-weight: bold;
@@ -176,12 +208,6 @@ a {
 }
 @media screen and (max-width: 700px) {
  
-  .btn-outlined {
-    background-color: #702ec2;
-    color: #f2f2f2;
-    position: absolute;
-    right: 0;
-  }
   .account {
     margin-right: 0px;
     display: inline-block;
@@ -190,8 +216,24 @@ a {
   .navbar {
     padding-left: 0px;
   }
+  .navbar .btn-light {
+    display: inline-flex;
+    position: relative;
+  }
+  .navbar-toggler .collapsed {
+    color: #fafafa;
+    background-color: #fafafa;
+  }
+  .navbar .btn-light:hover {
+    background-color: #00272e;
+    color: #fafafa;
+    position: relative;
+  }
   .layout-account {
     margin-right: 20px;
     margin-left: 20px;
+  }
+  .card {
+    margin-bottom: 20px;
   }
 }
