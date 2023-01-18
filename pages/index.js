@@ -38,7 +38,7 @@ export default function Home() {
 
   const getCourses = () => {
     setLoading(true)
-    fetch(`${API}/courses/getAll`)
+    fetch(`${API}/course/getAll`)
     .then((response) => response.json())
     .then((response) => {
       if (response?.data) {
@@ -49,7 +49,7 @@ export default function Home() {
           setCourses(response?.data)
           getCategories(response?.data)
           setLoading(false)
-        }, 2000);
+        }, 1000);
       }
     })
   }
@@ -74,51 +74,17 @@ export default function Home() {
       </>
     )
   }
-  const renderContentByCategory = (category, data) => {
+  const renderCourses = (data) => {
     return (
       <>
         {
           data?.map((item, index) => {
-            if (item.category == category) {
-              return (
-                <Card data={item} showContent={false} key={index}></Card>
-              )
-            }
-          })
-        }
-      </>
-    )
-  }
-
-  const renderCoursesByCategory = () => {
-    return (
-      <>
-        { categories?.map((category, index) => {
             return (
-              <>
-                <div key={index}>
-                  <div className={styles.subtitle}>{category}</div>
-                  <div className={styles.grid}>
-                    { renderContentByCategory(category, courses) }
-                  </div>
-                </div>
-                <div></div>
-              </>
+              <div className={styles.box}>
+                <Card data={item} showContent={true} key={index}></Card>
+              </div>
             )
           })
-        }
-        { loading && 
-          Array(3).fill().map((item, index) => <>
-              <div key={index}>
-                <div className={styles.subtitle}>
-                </div>
-                <div className={styles.grid}>
-                  <BodySkeleton></BodySkeleton>
-                </div>
-              </div>
-              <div></div>
-          </>
-          )
         }
       </>
     )
@@ -143,35 +109,35 @@ export default function Home() {
               <h1 className={styles.title}>Universidad Bolivariana de las Comunas</h1>
               <p className={styles.text}>Adquiere un programa, curso y/o licenciatura en alguna de las carreras que ofrecemos. Registrarte en nuestra plataforma y accede a toda la información que tenemos para ti.</p>
               <div className={styles.join}>
-                <Link type="button" className="btn btn-warning" href="/account?login=false">Acceder</Link>
+                <Link type="button" className="btn btn-light" href="/account?login=false">Acceder</Link>
               </div>
             </div>
             <div className={styles.videoIntro}>
               <video className={styles.video} src='/intro.mp4' autoPlay></video>
             </div>
           </div>
-          <div className={styles.content}>
-            <div>
-              { renderList() }
+          <div className={styles.block}>
+            <h2 className='text-center subtitle'>Categorías Populares</h2>
+            <div className={styles.grid}>
+              { categories?.map((item) => <div className={styles.box}>
+                    <div className='card p-0'>
+                      { item.includes('Turismo') && <img className="card-img-top" height={200} src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2021/04/turismo.jpg" alt="Card image cap"/>}
+                      { item.includes('Informática') && <img className="card-img-top" height={200} src="https://concepto.de/wp-content/uploads/2015/08/informatica-1-e1590711788135.jpg" alt="Card image cap"/>}
+                      { item.includes('Básico') && <img className="card-img-top" height={200} src="https://palt.es/wp-content/uploads/2021/07/matematicas.jpg" alt="Card image cap"/>}
+                      
+                      <div className='card-body'>
+                        <div className='card-title text-center'>{item}</div>
+                      </div>
+                    </div>
+                </div>
+                )
+              }
             </div>
-            { renderCoursesByCategory() }
           </div>
           <div className={styles.block}>
-            <h1 className={styles.subtitle}>Cursos más populares</h1>
+            <h2 className='text-center subtitle'>Cursos Profesionales</h2>
             <div className={styles.grid}>
-              { promo?.map((item, index) => {
-                return (
-
-                      <div className="card" key={index}>
-                          <img className="card-img-top" src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/04/01170800/Free-Online-Courses-with-Certificates.jpg" alt="Card image cap"/>
-                          <div className="card-body">
-                              <div className="card-title mb-2">{item.subject}</div>
-                              <div className="card-subtitle text-muted mb-2">Descripción | {item.description}</div>
-                          </div>
-                      </div>
-                  )
-                })
-              }
+              { renderCourses(courses) }
             </div>
           </div>
         </main>

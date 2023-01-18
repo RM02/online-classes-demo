@@ -20,13 +20,13 @@ export default function Category () {
 
     const getCourses = () => {
         setLoading(true)
-        fetch(`${API}/courses/getAll`)
+        fetch(`${API}/course/getAll`)
         .then(response => response.json())
         .then(data => {
             setTimeout(() => {
                 setLoading(false)
                 setCourses(data.data)
-            }, 2000)
+            }, 1000)
         })
     }
     const subscribe = (item) => {
@@ -43,7 +43,7 @@ export default function Category () {
             <HeaderComponent></HeaderComponent>
             <div className="container">
                 <div className={styles.layout}>
-                    <p className={styles.subtitle}>{ router?.query?.category?.toUpperCase() }</p>
+                    <h2 className='text-center subtitle'>{ router?.query?.category?.toUpperCase() }</h2>
                     <div className={styles.grid}>
                         { loading ? <CardSkeleton></CardSkeleton> : renderCategoryElements(courses) }
                     </div>

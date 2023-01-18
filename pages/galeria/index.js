@@ -3,12 +3,15 @@ import HeaderComponent from "../../components/header"
 import Footer from "../../components/footer"
 
 export default function Galeria () {
+    
     return (
         <>
             <HeaderComponent></HeaderComponent>
             <div className="container">
 
                 <div className={styles.layout}>
+                    <h2 className='text-center subtitle'>Galería</h2>
+
                     <div className={styles.galeria}>
                         <div className={styles.galeryCard}>
                             <img className={styles.galeryCard} src="https://www.comunas.gob.ve/wp-content/uploads/2022/07/IMG_20220727_220707_920.jpg" />

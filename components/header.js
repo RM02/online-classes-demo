@@ -19,8 +19,7 @@ export default function HeaderComponent ({ isAuth }) {
                 { label: 'Artes', path: '/courses/artes' },
                 { label: 'Contabilidad', path: '/courses/contabilidad' },
                 { label: 'Salud', path: '/courses/salud' },
-                { label: 'Tecnología', path: '/courses/tecnología' },
-
+                { label: 'Tecnología', path: '/courses/tecnología' }
             ]
         },
         {
@@ -30,34 +29,32 @@ export default function HeaderComponent ({ isAuth }) {
     ]
 
     const dynamicAccountElement = (status) => {
-        if (status == 'authenticated') {
-            return (
-                <>
-                    <a className="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        { session?.user?.name?.toLocaleUpperCase() }
-                    </a>
-                    <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><Link className="dropdown-item" href='/courses'>Mis cursos</Link></li>
-                        <hr></hr>
-                        
-                        <li><Link className="dropdown-item" href="/">Perfil</Link></li>
-                        <li><button className="dropdown-item" onClick={() => signOut()}>Logout</button></li>
-                    </ul>
-                </>
-            )
-        } else {
-            return (
-                <>
-                    <button className="nav-link dropdown-toggle btn btn-light" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Cuenta
-                    </button>
-                    <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><button className="dropdown-item" onClick={() => router.push('/account?login=false')}>Registrar</button></li>
-                        <li><button className="dropdown-item" onClick={() => router.push('/account?login=true')}>Ingresar</button></li>
-                    </ul>
-                </>
-            )
-        }
+
+        return (status === "authenticated") ?
+            <>
+                <a className="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    { session?.user?.name?.toLocaleUpperCase() }
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li><Link className="dropdown-item" href='/courses'>Mis cursos</Link></li>
+                    <li><Link className="dropdown-item" href="/">Perfil</Link></li>
+
+                    <hr></hr>
+                    
+                    <li><button className="dropdown-item" onClick={() => signOut()}>Cerrar sesión</button></li>
+                </ul>
+            </>
+        :
+            <>
+                <a className="nav-link dropdown-toggle btn btn-light" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Cuenta
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li><button className="dropdown-item" onClick={() => router.push('/account?login=false')}>Registrar</button></li>
+                    <li><button className="dropdown-item" onClick={() => router.push('/account?login=true')}>Ingresar</button></li>
+                </ul>
+            </>
+            
     }
     const dynamicMenu = () => {
         return (
