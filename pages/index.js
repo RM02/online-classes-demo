@@ -46,7 +46,7 @@ export default function Home() {
         const data = response.data?.filter((item) => item?.subscriptions?.length >= 1)
         setTimeout(() => {
           setPromo(data)
-          setCourses(response?.data)
+          setCourses(response?.data?.slice(0,6))
           getCategories(response?.data)
           setLoading(false)
         }, 1000);
@@ -106,8 +106,9 @@ export default function Home() {
         <main className={styles.layout}>
           <div className={styles.heading}>
             <div>
-              <h1 className={styles.title}>Universidad Bolivariana de las Comunas</h1>
-              <p className={styles.text}>Adquiere un programa, curso y/o licenciatura en alguna de las carreras que ofrecemos. Registrarte en nuestra plataforma y accede a toda la información que tenemos para ti.</p>
+              <h1 className={styles.title}>Únase a la comunidad de estudiantes. </h1>
+              <p className={styles.text}>Desarrolle las habilidades para dar forma al mundo.</p>
+              <p className='mt-4'>Dondequiera que se encuentre en su carrera y en su vida, puede obtener acceso a profesores y colegas expertos, y obtener conocimientos de siguiente nivel para lograr sus objetivos.</p>
               <div className={styles.join}>
                 <Link type="button" className="btn btn-light" href="/account?login=false">Acceder</Link>
               </div>
